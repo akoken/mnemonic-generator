@@ -592,13 +592,13 @@ impl MnemonicGenerator {
                 // Marie Tharp - American geologist and oceanic cartographer who co-created the first scientific map of the Atlantic Ocean floor. Her work led to the acceptance of the theories of plate tectonics and continental drift. https://en.wikipedia.org/wiki/Marie_Tharp
                 "tharp".to_string(),
                 // Ken Thompson - co-creator of UNIX and the C programming language - https://en.wikipedia.org/wiki/Ken_Thompson
-                "thompson",
+                "thompson".to_string(),
                 // Linus Torvalds invented Linux and Git. https://en.wikipedia.org/wiki/Linus_Torvalds
-                "torvalds",
+                "torvalds".to_string(),
                 // Youyou Tu - Chinese pharmaceutical chemist and educator known for discovering artemisinin and dihydroartemisinin, used to treat malaria, which has saved millions of lives. Joint winner of the 2015 Nobel Prize in Physiology or Medicine. https://en.wikipedia.org/wiki/Tu_Youyou
-                "tu",
+                "tu".to_string(),
                 // Alan Turing was a founding father of computer science. https://en.wikipedia.org/wiki/Alan_Turing.
-                "turing",
+                "turing".to_string(),
                 // Varahamihira - Ancient Indian mathematician who discovered trigonometric formulae during 505-587 CE - https://en.wikipedia.org/wiki/Var%C4%81hamihira#Contributions
                 "varahamihira".to_string(),
                 // Dorothy Vaughan was a NASA mathematician and computer programmer on the SCOUT launch vehicle program that put America's first satellites into space - https://en.wikipedia.org/wiki/Dorothy_Vaughan
