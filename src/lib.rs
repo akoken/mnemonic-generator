@@ -1,7 +1,27 @@
 use rand::Rng;
 use thiserror::Error;
 
-/// A generator for creating memorable word combinations
+/// A generator for creating memorable word combinations from predefined or custom word lists.
+///
+/// # Examples
+///
+/// ```
+/// use mnemonic_generator::MnemonicGenerator;
+///
+/// // Use the default generator
+/// let generator = MnemonicGenerator::new();
+/// let mnemonic = generator.generate().expect("Failed to generate mnemonic");
+/// println!("Generated mnemonic: {}", mnemonic);
+///
+/// // Create a generator with custom words
+/// let custom_generator = MnemonicGenerator::with_words(
+///     vec!["amazing".to_string(), "friendly".to_string(), "epic".to_string()],
+///     vec!["einstein".to_string(), "galileo".to_string()]
+/// );
+/// let custom_mnemonic = custom_generator.generate_with_separator("-")
+///     .expect("Failed to generate custom mnemonic");
+/// println!("Custom mnemonic: {}", custom_mnemonic);
+/// ```
 pub struct MnemonicGenerator {
     left_words: Vec<String>,
     right_words: Vec<String>,
@@ -14,6 +34,16 @@ pub enum MnemonicError {
     EmptyWordList,
 }
 
+/// Creates a new `MnemonicGenerator` with a default set of words.
+///
+/// # Examples
+///
+/// ```
+/// use mnemonic_generator::MnemonicGenerator;
+///
+/// let generator = MnemonicGenerator::new();
+/// let mnemonic = generator.generate().expect("Failed to generate mnemonic");
+/// ```
 impl MnemonicGenerator {
     /// Create a new MnemonicGenerator with default words
     pub fn new() -> Self {
@@ -27,7 +57,24 @@ impl MnemonicGenerator {
         }
     }
 
-    /// Create a MnemonicGenerator with custom word lists
+    /// Creates a `MnemonicGenerator` with custom word lists.
+    ///
+    /// # Arguments
+    ///
+    /// * `left_words` - A vector of words to be used as the first part of the mnemonic
+    /// * `right_words` - A vector of words to be used as the second part of the mnemonic
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use mnemonic_generator::MnemonicGenerator;
+    ///
+    /// let generator = MnemonicGenerator::with_words(
+    ///     vec!["hello".to_string(), "world".to_string()],
+    ///     vec!["rust".to_string(), "programmer".to_string()]
+    /// );
+    /// let mnemonic = generator.generate().expect("Failed to generate mnemonic");
+    /// ```
     pub fn with_words(left_words: Vec<String>, right_words: Vec<String>) -> Self {
         Self {
             left_words,
@@ -35,12 +82,48 @@ impl MnemonicGenerator {
         }
     }
 
-    /// Generate a mnemonic with default underscore separator
+    /// Generates a mnemonic using the default underscore separator.
+    ///
+    /// # Errors
+    ///
+    /// Returns `MnemonicError::EmptyWordList` if no words are available for generation
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use mnemonic_generator::MnemonicGenerator;
+    ///
+    /// let generator = MnemonicGenerator::new();
+    /// match generator.generate() {
+    ///     Ok(mnemonic) => println!("Generated mnemonic: {}", mnemonic),
+    ///     Err(e) => eprintln!("Error generating mnemonic: {}", e)
+    /// }
+    /// ```
     pub fn generate(&self) -> Result<String, MnemonicError> {
         self.generate_with_separator("_")
     }
 
-    /// Generate a mnemonic with a custom separator
+    /// Generates a mnemonic using a custom separator.
+    ///
+    /// # Arguments
+    ///
+    /// * `separator` - A string slice to be used between the two words
+    ///
+    /// # Errors
+    ///
+    /// Returns `MnemonicError::EmptyWordList` if no words are available for generation
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use mnemonic_generator::MnemonicGenerator;
+    ///
+    /// let generator = MnemonicGenerator::new();
+    /// match generator.generate_with_separator("-") {
+    ///     Ok(mnemonic) => println!("Generated mnemonic: {}", mnemonic),
+    ///     Err(e) => eprintln!("Error generating mnemonic: {}", e)
+    /// }
+    /// ```
     pub fn generate_with_separator(&self, separator: &str) -> Result<String, MnemonicError> {
         if self.left_words.is_empty() || self.right_words.is_empty() {
             return Err(MnemonicError::EmptyWordList);
