@@ -1,6 +1,6 @@
 # Mnemonic Generator
 
-A lightweight Rust library for generating memorable word combinations with customizable word lists and separators.
+A lightweight Rust library for generating Docker-like mnemonics.
 
 ## Installation
 
