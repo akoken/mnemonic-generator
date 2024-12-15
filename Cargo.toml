@@ -1,6 +1,6 @@
 [package]
 name = "mnemonic-generator"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Abdurrahman Alp Köken <abdurrahman@akoken.com>"]
 license = "MIT"
