@@ -48,6 +48,7 @@ impl MnemonicGenerator {
     /// Create a new MnemonicGenerator with default words
     pub fn new() -> Self {
         Self {
+            // https://github.com/moby/moby/blob/39f7b2b6d0156811d9683c6cb0743118ae516a11/pkg/namesgenerator/names-generator.go#L21-L128
             left_words: vec![
                 "admiring".to_string(),
                 "adoring".to_string(),
@@ -158,6 +159,7 @@ impl MnemonicGenerator {
                 "zealous".to_string(),
                 "zen".to_string(),
             ],
+            // https://github.com/moby/moby/blob/39f7b2b6d0156811d9683c6cb0743118ae516a11/pkg/namesgenerator/names-generator.go#L135-L845
             right_words: vec![
                 // Maria Gaetana Agnesi - Italian mathematician, philosopher, theologian and humanitarian. She was the first woman to write a mathematics handbook and the first woman appointed as a Mathematics Professor at a University. https://en.wikipedia.org/wiki/Maria_Gaetana_Agnesi
                 "agnesi".to_string(),
