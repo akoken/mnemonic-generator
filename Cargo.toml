@@ -2,6 +2,8 @@
 name = "mnemonic-generator"
 version = "0.1.0"
 edition = "2021"
+description = "A library to generate Docker-like mnemonics."
+license = "MIT"
 
 [dependencies]
 rand = "0.8.5"
