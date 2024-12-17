@@ -8,7 +8,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-mnemonic-generator = "0.1.0"
+mnemonic-generator = "0.1.1"
 ```
 
 ## Usage
